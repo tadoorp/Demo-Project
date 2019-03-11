@@ -1,0 +1,101 @@
+
+
+<div>
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search by Pincode, City, State or Geo-coordinates">
+  </mat-form-field>
+</div>
+
+<div class="mat-elevation-z8">
+  <table #table mat-table [dataSource]="dataSource" matSort>
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+      
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Pincode Column -->
+    <ng-container matColumnDef="pincode">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Pincode </th>
+      <td mat-cell *matCellDef="let element" > {{element.pincode}} </td>
+    </ng-container>
+
+    <!-- City Column -->
+    <ng-container matColumnDef="city">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+      <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+    </ng-container>
+
+    <!-- State Column -->
+    <ng-container matColumnDef="state">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> State </th>
+      <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+    </ng-container>
+
+    <!-- Geo-coordinates Column -->
+    <ng-container matColumnDef="geocoordinates">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Geo-coordinates </th>
+      <td mat-cell *matCellDef="let element"> {{element.geocoordinates}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="details">
+        <th mat-header-cell *matHeaderCellDef> Details </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="redirectToDetails(element)">
+              <mat-icon class="mat-18">reorder</mat-icon>
+          </button>
+        </td>
+    </ng-container>
+     
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef> Update </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="accent" (click)="redirectToUpdate(element.id)">
+            <mat-icon class="mat-18">system_update</mat-icon>
+          </button>
+        </td>
+    </ng-container>
+     
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="warn" (click)="redirectToDelete(element.id)">
+            <mat-icon class="mat-18">delete</mat-icon>
+          </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+<!-- <mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>
+    
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card style="width:100%">
+      <mat-card-header>
+        <mat-card-title>Pincode</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+  
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list> -->
+
+  
+
+
+
+<br>
+<div style="text-align:right">
+<button class="button" mat-button routerLink="/map">Next</button>
+</div>
+<router-outlet></router-outlet>

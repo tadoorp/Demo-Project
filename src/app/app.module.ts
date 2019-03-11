@@ -1,16 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DisplayMapModule } from './display-map/display-map.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddressModule } from './address/address.module';
+import { RoutingModule } from './routing/routing.module';
+import { AddressDetailComponent } from './address-detail/address-detail.component';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddressDetailComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    DisplayMapModule,
+    AddressModule,
+    BrowserAnimationsModule,
+    RoutingModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,30 @@
+agm-map {
+  height: 500px;
+  
+}
+
+
+* {
+  font-family: Lato;
+}
+
+a {
+  color: darkblue;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  
+
+.example-full-width{
+    width:100%;
+}
+
+.button{
+  background-color:rgba(24, 24, 211, 0.74);
+  color: white;
+}
